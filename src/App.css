@@ -9,6 +9,11 @@
 
 }
 
+.body-main {
+  max-height: 100vh;
+  
+}
+
 
 .umb-img {
   margin: 0.5em 0em;
