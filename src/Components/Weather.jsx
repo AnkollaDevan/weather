@@ -17,7 +17,7 @@ import thunder_icon from '../assets/thunder.png'
 function Weather() {
 
 
-    const [weatherdata, setWeather] = useState();
+    const [weatherdata, setWeather] = useState(null);
 
     const [city, setCity] = useState("");
 
@@ -50,7 +50,7 @@ function Weather() {
 
 
 
-    const fetchData = async (city) => {
+    const fetchData = async () => {
 
         try {
             const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${'7f641648b881eb2b91567005fb28589f'}`);
@@ -61,7 +61,7 @@ function Weather() {
 
             const icon = images[data.weather[0].icon]
 
-            if(data.cod === 200) {
+            if (data.cod === 200) {
                 const weatherData = {
                     temperature: Math.floor(data.main.temp),
                     humidity: data.main.humidity,
@@ -74,16 +74,14 @@ function Weather() {
 
                 setWeather(weatherData);
 
-            }else {
+            } else {
                 setError(true);
             }
 
-            
-
-            
         }
         catch (error) {
-            console.log("error");
+            setError(true);
+            setWeather(null);
         }
 
 
@@ -96,17 +94,17 @@ function Weather() {
         <div className="main-div">
             <div className="weather-container">
                 <div className="search-bar">
-                    <input ref= {input} type="text" placeholder="Enter City Name" />
-                    <FontAwesomeIcon className='mag-icon' icon={faMagnifyingGlass} onClick={() => fetchData(input.current.value)} />
+                    <input  value={city} type="text" placeholder="Enter City Name" onChange={(e) => setCity(e.target.value)} />
+                    <FontAwesomeIcon className='mag-icon' icon={faMagnifyingGlass} onClick={fetchData} />
                 </div>
-                {weatherdata ? <Weathercard data={weatherdata}/>: error ? (
-                    <div>
+                {weatherdata ? <Weathercard data={weatherdata} /> : error ? (
+                    <div className="error-mesg">
                         <h1>No Data Found</h1>
                     </div>
 
-                 ): (<div> </div>
-                    
-                )};
+                ) : (<div> </div>
+
+                )}
 
             </div>
         </div>
