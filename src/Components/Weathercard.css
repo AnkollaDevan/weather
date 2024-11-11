@@ -35,7 +35,7 @@
     background-image: linear-gradient(135deg, #ffffff33, #00000033);
     backdrop-filter: blur(10px);
     padding: 1em 1em;
-    max-width: 150px;
+    width: 150px;
     border-radius: 30px;
     text-align: center;
 

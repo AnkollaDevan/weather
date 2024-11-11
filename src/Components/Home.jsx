@@ -2,6 +2,7 @@ import umbrella_icon from '../assets/umbrella.png'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { Link } from 'react-router-dom'; 
+import './Home.css'
 
 
 
