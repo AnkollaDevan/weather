@@ -9,7 +9,6 @@ import './Home.css'
 
 function Home() {
     return (
-        <div className='body-main'>
             <div className='body'>
                 <div className="home-div">
                     <div className="umb-img" >
@@ -24,12 +23,8 @@ function Home() {
                         </Link>
                         
                     </div>
-
                 </div>
             </div >
-
-
-        </div>
 
     )
 }
